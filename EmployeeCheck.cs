@@ -10,33 +10,45 @@ namespace EmployeeWageComputation
     {
         public const int presentFullTime = 1;
         public const int presentHalfTime = 2;
-        public const int hourlyWage = 20;
+        //public const int hourlyWage = 20;
         public static void CheckEmployee()
         {
             
             int empHours = 0;
             int dailyWage = 0;
+            int monthlyWage = 0;
+            int workingDays = 20;
+            int hourlyWage = 20;
 
-            Random random = new Random();
-            int empCheck = random.Next(3);
+            
 
-            switch(empCheck)
+            for(int i = 1; i <= workingDays; i++)
             {
-                case presentFullTime:
-                    Console.WriteLine("Present Full Time");
-                    empHours = 8;
-                    break;
-                case presentHalfTime:
-                    Console.WriteLine("Present Half Time");
-                    empHours = 4;
-                    break;
-                default:
-                    Console.WriteLine("Absent");
-                    empHours = 0;
-                    break;
+                Random random = new Random();
+                int empCheck = random.Next(3);
+                switch (empCheck)
+                {
+                    case presentFullTime:
+                        Console.WriteLine("Present Full Time");
+                        empHours = 8;
+                        break;
+                    case presentHalfTime:
+                        Console.WriteLine("Present Half Time");
+                        empHours = 4;
+                        break;
+                    default:
+                        Console.WriteLine("Absent");
+                        empHours = 0;
+                        break;
+                }
+                dailyWage = empHours * hourlyWage;
+                Console.WriteLine("Today's Wage: "+ dailyWage);
+                monthlyWage = monthlyWage + dailyWage;
             }
-            dailyWage = empHours * hourlyWage;
-            Console.WriteLine("Employee's Wage Today: "+ dailyWage);
+
+            
+            
+            Console.WriteLine("Employee's Monthly Wage : "+ monthlyWage);
         }
     }
 }

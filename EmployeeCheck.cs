@@ -10,19 +10,25 @@ namespace EmployeeWageComputation
     {
         public static void CheckEmployee()
         {
-            int present = 1;
+            int presentFullTime = 1;
+            int presentHalfTime = 2;
             int hourlyWage = 20;
             int empHours = 0;
             int dailyWage = 0;
 
             Random random = new Random();
-            int empCheck = random.Next(2);
+            int empCheck = random.Next(3);
 
-            if(empCheck == present)
+            if(empCheck == presentFullTime)
             {
-                Console.WriteLine("Employee is Present");
+                Console.WriteLine("Employee is Present Full Time");
                 empHours = 8;
 
+            }
+            else if (empCheck == presentHalfTime)
+            {
+                Console.WriteLine("Employee is Present Half Time");
+                empHours = 4;
             }
             else
             {

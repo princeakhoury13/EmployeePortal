@@ -8,32 +8,32 @@ namespace EmployeeWageComputation
 {
     public class EmployeeCheck
     {
+        public const int presentFullTime = 1;
+        public const int presentHalfTime = 2;
+        public const int hourlyWage = 20;
         public static void CheckEmployee()
         {
-            int presentFullTime = 1;
-            int presentHalfTime = 2;
-            int hourlyWage = 20;
+            
             int empHours = 0;
             int dailyWage = 0;
 
             Random random = new Random();
             int empCheck = random.Next(3);
 
-            if(empCheck == presentFullTime)
+            switch(empCheck)
             {
-                Console.WriteLine("Employee is Present Full Time");
-                empHours = 8;
-
-            }
-            else if (empCheck == presentHalfTime)
-            {
-                Console.WriteLine("Employee is Present Half Time");
-                empHours = 4;
-            }
-            else
-            {
-                Console.WriteLine("Employee is Absent");
-                empHours = 0;
+                case presentFullTime:
+                    Console.WriteLine("Present Full Time");
+                    empHours = 8;
+                    break;
+                case presentHalfTime:
+                    Console.WriteLine("Present Half Time");
+                    empHours = 4;
+                    break;
+                default:
+                    Console.WriteLine("Absent");
+                    empHours = 0;
+                    break;
             }
             dailyWage = empHours * hourlyWage;
             Console.WriteLine("Employee's Wage Today: "+ dailyWage);
